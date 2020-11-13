@@ -1,23 +1,38 @@
 new Vue({
-    el:'#spt_input_element'
-    data: {
-        layer_number_v:0,
-        gwt_level:0,
-        answer='xd'
+  delimiters: ['[[', ']]'],
+  el: '#spt_input_element',
+  data: {
+    answer: 'OK', // answer is just to check whether code is working
+    counter: 0,
+    layer_number: '0', // getting value from Number of Layers input box
+    gwt:'0',           // getting value from Ground Water Table input box
+    rows:[],           // represent each row in spt_table with an array
+  },
+  methods: {
+
+    // Change Row is for dynamically changing row number of spt_table in accordance to Number of Layers
+    changeRow: function(count){
+        //takes initial row data
+        var numRows = this.rows.length;
+
+        //maximum number of layer limitation
+        if (numRows >= 10) return;
+
+        //adding rows and deleting rows
+        if (count>numRows){
+           for(var i=1; i <= (count-numRows); i++) {
+                this.rows.push({});
+        }} else if (count<numRows){
+           for(var i=1; i <= (numRows-count); i++) {
+                this.rows.pop();
+        }} else {
+           return;
+        }
+        }
+
+
     },
 
-    watch:{
-    layer_number_v:function(layer_number_v){
-    this.answer=layer_number_v
-    }
-    },
 
-    methods:{
 
-    },
-
-    computed:{
-
-    }
-
-});
+})

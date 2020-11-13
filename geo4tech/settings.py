@@ -123,4 +123,4 @@ ACCOUNT_ACTIVATION_DAYS = 7  # the time period that is given to activate account
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL='home'
+LOGIN_REDIRECT_URL = 'home'

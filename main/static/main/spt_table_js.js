@@ -2,11 +2,11 @@ new Vue({
   delimiters: ['[[', ']]'],
   el: '#spt_input_element',
   data: {
-    answer: 'OK', // answer is just to check whether code is working
-    counter: 0,
+    answer: 'OK',      // answer is just to check whether code is working
     layer_number: '0', // getting value from Number of Layers input box
     gwt:'0',           // getting value from Ground Water Table input box
     rows:[],           // represent each row in spt_table with an array
+    layer_counter:'0',
   },
   methods: {
 
@@ -14,9 +14,6 @@ new Vue({
     changeRow: function(count){
         //takes initial row data
         var numRows = this.rows.length;
-
-        //maximum number of layer limitation
-        if (numRows >= 10) return;
 
         //adding rows and deleting rows
         if (count>numRows){

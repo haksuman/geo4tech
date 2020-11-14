@@ -43,8 +43,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="row in rows">
-                <td scope="row" style="text-align:center">1</td>
+            <tr v-for="(row, index) in rows">
+                <td scope="row" style="text-align:center">[[ index+1 ]]</td>
                 <td style="text-align:center"><select size="1" id="row-1-soil_type" name="row-1-soil_type" style="text-align:center">
                         <option value="Clay" selected="selected">
                             Clay
@@ -85,6 +85,8 @@
 
     <p>Layer number: [[layer_number]]</p>
 
+    <button type="button" onclick="makeid(7)">Transfer ID</button>
+
 
 </div>
 
@@ -93,4 +95,6 @@
       <!-- loading vue for spt table-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script type="text/javascript" src="{% static 'main/spt_table_js.js' %}"></script>
+    <script type="text/javascript" src="{% static 'main/spt_data_transfer.js' %}"></script>
+
 {% endblock %}
